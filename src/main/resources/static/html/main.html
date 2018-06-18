@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <
+    <title>主界面</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- 引入JQuery -->
+    <script type="text/javascript" src="../jquery-easyui-1.5.5.2/jquery.min.js"></script>
+    <!-- 引入EasyUI -->
+    <script type="text/javascript" src="../jquery-easyui-1.5.5.2/jquery.easyui.min.js"></script>
+    <!-- 引入EasyUI的中文国际化js，让EasyUI支持中文 -->
+    <script type="text/javascript" src="../jquery-easyui-1.5.5.2/locale/easyui-lang-zh_CN.js"></script>
+    <!-- 引入EasyUI的样式文件-->
+    <link rel="stylesheet" href="../jquery-easyui-1.5.5.2/themes/default/easyui.css" type="text/css"/>
+    <!-- 引入EasyUI的图标样式文件-->
+    <link rel="stylesheet" href="../jquery-easyui-1.5.5.2/themes/icon.css" type="text/css"/>
+    <script  type="text/javascript">
+        function addTab(title, url){
+            if ($('#tt').tabs('exists', title)){
+                $('#tt').tabs('select', title);
+            } else {
+                var content = '<iframe scrolling="auto" frameborder="0"  src="'+url+'" style="width:100%;height:100%;"></iframe>';
+                $('#tt').tabs('add',{
+                    title:title,
+                    content:content,
+                    closable:true
+                });
+            }
+        }
+
+
+
+    </script>
+</head>
+
+
+
+<body>
+<div class="easyui-layout" style="width: 2000px;height: 1000px;">
+
+
+    <div region="west" split="true" title="菜单" style="width:300px;">
+
+        <!-- 菜单内容 -->
+        <div class="easyui-accordion" style="width:300px;">
+
+            <div title="基础资料"  style="overflow:auto;padding:10px;">
+                <ul>
+                    <li><a href="javascript:void(0)" onclick="addTab('人员信息','user.html')">人员信息</a></li>
+                    <li>仓库信息表</li>
+                    <li>储位</li>
+                    <li>物料信息</li>
+
+
+                </ul>
+            </div>
+
+
+            <div title="功能"  selected="true" style="padding:10px;">
+                <ul>
+                    <li><a href="javascript:void(0)" onclick="addTab('采购入库','materialIn.html')">采购入库</a></li>
+
+                </ul>
+            </div>
+            <div title="设置">
+                <ul>
+                    <li>系统设置</li>
+
+                    <li><a href="javascript:void(0)" onclick="addTab('文件预览','upload.html')">文件预览</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div id="content" region="center" title="主页" style= "">
+        <div id="tt" class="easyui-tabs" style="width:100%;height: 100%">
+            <div title="Home">
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+</body>
+</html>
